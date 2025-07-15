@@ -68,3 +68,21 @@
   position: absolute;
   z-index: 2;
 }
+
+
+/* Ajustes para celulares */
+@media (max-width: 768px) {
+  .carousel-img,
+  .carousel-img-eve,
+  .carousel-img-josy {
+    max-height: 300px; /* o lo que consideres adecuado */
+    object-position: center center;
+  }
+
+  .carousel-caption {
+    font-size: 0.9rem;
+    padding: 0.5rem;
+    background-color: rgba(0,0,0,0.4); /* Opcional para dar contraste */
+    border-radius: 10px;
+  }
+}
