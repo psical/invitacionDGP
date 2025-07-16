@@ -43,8 +43,20 @@
 
    <div class="carousel-item">
   <div class="image-overlay-container">
-    <video class="d-block w-100 carousel-video" autoplay muted loop playsinline>
+    <video class="d-block w-100 carousel-video" autoplay muted playsinline>
       <source src="video2.mp4" type="video/mp4">
+      tu navegador no soporta video
+    </video>
+    <div class="overlay-black"></div> <!-- ← Esta es la capa oscura -->
+  </div>
+  <div class="carousel-caption d-block">
+  </div>
+  </div>
+
+     <div class="carousel-item">
+  <div class="image-overlay-container">
+    <video class="d-block w-100 carousel-video" autoplay muted playsinline>
+      <source src="video3.mp4" type="video/mp4">
       tu navegador no soporta video
     </video>
     <div class="overlay-black"></div> <!-- ← Esta es la capa oscura -->
@@ -98,6 +110,35 @@
 
 
 </body>
+
+<script>
+  const carousel = document.querySelector('#carouselExampleCaptions');
+  const videos = carousel.querySelectorAll('video');
+
+  const bsCarousel = new bootstrap.Carousel(carousel, {
+    interval: 5000,
+    ride: 'carousel'
+  });
+
+  function pauseAllVideosExceptActive() {
+    videos.forEach((video) => {
+      const item = video.closest('.carousel-item');
+      if (item.classList.contains('active')) {
+        video.currentTime = 0;
+        video.play();
+      } else {
+        video.pause();
+      }
+    });
+  }
+
+  // Pausar/iniciar según el slide actual
+  carousel.addEventListener('slid.bs.carousel', pauseAllVideosExceptActive);
+
+  // Al cargar la página
+  window.addEventListener('DOMContentLoaded', pauseAllVideosExceptActive);
+</script>
+
 
 <script>
   document.addEventListener("contextmenu", e => e.preventDefault());
