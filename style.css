@@ -35,15 +35,12 @@
   object-fit: cover;
   object-position: 40% 23%; /* <-- Ajusta esta línea */
 }
-.carousel-img-eve{
-  max-height: 1000px;
-  object-fit: cover;
-  object-position: 40% 10%; /* <-- Ajusta esta línea */
-}
-.carousel-img-josy{
-  max-height: 1000px;
-  object-fit: cover;
-  object-position: 40% 18%; /* <-- Ajusta esta línea */
+
+@media (max-width: 768px) {
+  .carousel-video {
+    height: 300px; /* o lo que consideres cómodo en tu diseño */
+    object-position: center;
+  }
 }
 
 .image-overlay-container {
